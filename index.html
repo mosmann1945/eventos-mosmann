@@ -8,8 +8,8 @@
 <meta name="theme-color" content="#1F5F3A">
 
 <link rel="manifest" href="./manifest.json">
-<link rel="icon" href="./icon-192.png" type="image/png">
-<link rel="apple-touch-icon" href="./icon-192.png">
+<link rel="icon" href="./icon-192.png?v=2" type="image/png">
+<link rel="apple-touch-icon" href="./icon-192.png?v=2">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Eventos">
@@ -18,7 +18,6 @@
 <style>
   :root {
     --bg: #F6F3EA;
-    --card-logo: #F3EFE6;
     --verde-escuro: #1F5F3A;
     --amarelo: #F5C400;
     --amarelo-escuro: #D9A800;
@@ -57,18 +56,16 @@
   .logo-card {
     width: 96px;
     height: 96px;
-    background: var(--card-logo);
+    background: var(--amarelo);
     border-radius: 22px;
     box-shadow: var(--sombra);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
   }
 
   .logo-card img {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .titulo {
@@ -199,7 +196,7 @@
   <div class="pagina">
 
     <div class="logo-card">
-      <img src="./icon-192.png" alt="Logo Mosmann Alimentos">
+      <img src="./icon-192.png?v=2" alt="Logo Mosmann Alimentos">
     </div>
     <h1 class="titulo">Eventos e Degustações</h1>
     <p class="subtitulo">Escolha o que você quer fazer</p>
