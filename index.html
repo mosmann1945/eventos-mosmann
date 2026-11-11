@@ -18,11 +18,13 @@
 <style>
   :root {
     --bg: #F6F3EA;
+    --card-logo: #F3EFE6;
     --verde-escuro: #1F5F3A;
-    --verde-medio: #2E7D4F;
     --amarelo: #F5C400;
-    --texto-escuro: #262220;
-    --texto-claro: #FFFFFF;
+    --amarelo-escuro: #D9A800;
+    --branco: #FFFFFF;
+    --sombra: 0 6px 18px rgba(0, 0, 0, 0.12);
+    --sombra-texto: 0 1px 2px rgba(0, 0, 0, 0.35);
   }
 
   * {
@@ -33,59 +35,64 @@
     margin: 0;
     padding: 0;
     background: var(--bg);
-    color: var(--texto-escuro);
-    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: system-ui, Roboto, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
     -webkit-text-size-adjust: 100%;
   }
 
   body {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 24px 16px 32px;
+    padding: 28px 16px 32px;
   }
 
-  .topo {
+  .pagina {
     width: 100%;
-    max-width: 480px;
+    max-width: 420px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-bottom: 20px;
   }
 
-  .logo {
-    width: 136px;
-    height: 136px;
-    border-radius: 24px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-    margin-bottom: 14px;
-    object-fit: cover;
+  /* TOPO */
+  .logo-card {
+    width: 96px;
+    height: 96px;
+    background: var(--card-logo);
+    border-radius: 22px;
+    box-shadow: var(--sombra);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-card img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
   }
 
   .titulo {
+    margin: 18px 0 6px;
     font-size: 26px;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--verde-escuro);
-    margin: 0 0 6px;
+    text-align: center;
     line-height: 1.25;
   }
 
   .subtitulo {
+    margin: 0 0 24px;
     font-size: 17px;
-    color: #4a4540;
-    margin: 0;
+    color: #333;
+    text-align: center;
   }
 
+  /* BOTÕES PRINCIPAIS */
   .botoes {
     width: 100%;
-    max-width: 480px;
     display: flex;
     flex-direction: column;
     gap: 18px;
-    margin-top: 10px;
   }
 
   .botao {
@@ -95,26 +102,25 @@
     width: 100%;
     min-height: 96px;
     padding: 14px 20px;
-    border-radius: 18px;
-    border: none;
+    background: var(--amarelo);
+    color: var(--branco);
+    text-shadow: var(--sombra-texto);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
     text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-    transition: transform 0.08s ease, box-shadow 0.08s ease;
+    transition: transform 0.08s ease;
     -webkit-tap-highlight-color: transparent;
   }
 
   .botao:active {
     transform: scale(0.98);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
   }
 
   .botao-icone {
-    font-size: 40px;
+    font-size: 44px;
     line-height: 1;
     flex-shrink: 0;
-    width: 52px;
-    text-align: center;
+    text-shadow: none;
   }
 
   .botao-texto {
@@ -128,86 +134,61 @@
     font-size: 22px;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
     line-height: 1.15;
   }
 
   .botao-sub {
-    font-size: 16px;
-    font-weight: 500;
-    opacity: 0.92;
+    font-size: 15px;
+    font-weight: 600;
     line-height: 1.25;
   }
 
-  .botao-amarelo {
-    background: var(--amarelo);
-    color: var(--texto-escuro);
-  }
-
-  .botao-verde-escuro {
-    background: var(--amarelo);
-    color: var(--texto-claro);
-  }
-
-  .botao-verde-medio {
-    background: var(--verde-medio);
-    color: var(--texto-claro);
-  }
-
-  .botao-contorno {
+  /* DÚVIDAS E INSTALAR */
+  .botao-secundario {
     width: 100%;
-    max-width: 480px;
-    margin-top: 26px;
-    min-height: 64px;
-    padding: 12px 20px;
-    border-radius: 16px;
-    border: 2px solid var(--verde-escuro);
-    background: transparent;
-    color: var(--verde-escuro);
+    height: 64px;
+    border-radius: 20px;
+    border: 2px solid var(--amarelo);
+    font-family: inherit;
     font-size: 17px;
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     text-decoration: none;
     cursor: pointer;
+    transition: transform 0.08s ease;
     -webkit-tap-highlight-color: transparent;
   }
 
-  .botao-contorno:active {
-    background: rgba(31, 95, 58, 0.08);
+  .botao-secundario:active {
+    transform: scale(0.98);
+  }
+
+  .botao-duvidas {
+    margin-top: 26px;
+    background: transparent;
+    color: var(--amarelo-escuro);
   }
 
   #btn-instalar {
-    width: 100%;
-    max-width: 480px;
     margin-top: 16px;
-    min-height: 64px;
-    padding: 12px 20px;
-    border-radius: 16px;
-    border: none;
-    background: var(--verde-medio);
-    color: var(--texto-claro);
-    font-size: 17px;
-    font-weight: 700;
+    background: var(--amarelo);
+    color: var(--branco);
+    text-shadow: var(--sombra-texto);
     display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-    -webkit-tap-highlight-color: transparent;
   }
 
   #btn-instalar.visivel {
     display: flex;
   }
 
+  /* RODAPÉ */
   footer {
-    margin-top: 36px;
+    margin-top: 32px;
     font-size: 14px;
-    color: #776f63;
+    color: #777;
     text-align: center;
     line-height: 1.5;
   }
@@ -215,50 +196,51 @@
 </head>
 <body>
 
-  <div class="topo">
-    <img class="logo" src="./icon-192.png" alt="Logo Mosmann Alimentos">
+  <div class="pagina">
+
+    <div class="logo-card">
+      <img src="./icon-192.png" alt="Logo Mosmann Alimentos">
+    </div>
     <h1 class="titulo">Eventos e Degustações</h1>
     <p class="subtitulo">Escolha o que você quer fazer</p>
+
+    <main class="botoes">
+      <a class="botao" href="https://forms.cloud.microsoft/r/qrQ4bPYwGW">
+        <span class="botao-icone">📝</span>
+        <span class="botao-texto">
+          <span class="botao-titulo">Pedir evento</span>
+          <span class="botao-sub">Solicitar degustação ou ação</span>
+        </span>
+      </a>
+
+      <a class="botao" href="https://outlook.office365.com/owa/calendar/1c7eae05247c46edac94d24f4d9da82b@mosmannalimentos.com.br/d35699977e5d4e29b8060fc1c49aab8a77506909330953308/calendar.html">
+        <span class="botao-icone">📅</span>
+        <span class="botao-texto">
+          <span class="botao-titulo">Ver agenda</span>
+          <span class="botao-sub">Datas livres e ocupadas</span>
+        </span>
+      </a>
+
+      <a class="botao" href="https://mosmann.sharepoint.com/:f:/s/Comercial-MosmannAlimentos-EventosMosmann/IgDnAfsbgdqiRami7kCOZh8pAdCH0xpQv6od6iUjagncEm8">
+        <span class="botao-icone">📷</span>
+        <span class="botao-texto">
+          <span class="botao-titulo">Fotos e vídeos</span>
+          <span class="botao-sub">Baixar e compartilhar</span>
+        </span>
+      </a>
+    </main>
+
+    <a class="botao-secundario botao-duvidas" href="https://wa.me/5551995629711">
+      💬 Dúvidas? Fale com o Marketing
+    </a>
+
+    <button id="btn-instalar" class="botao-secundario" type="button">
+      📲 Instalar no celular
+    </button>
+
+    <footer>Mosmann Alimentos Ltda.<br>2026</footer>
+
   </div>
-
-  <main class="botoes">
-    <a class="botao botao-amarelo" href="https://forms.cloud.microsoft/r/qrQ4bPYwGW" target="_blank" rel="noopener">
-      <span class="botao-icone">📝</span>
-      <span class="botao-texto">
-        <span class="botao-titulo">Pedir evento</span>
-        <span class="botao-sub">Solicitar degustação ou ação</span>
-      </span>
-    </a>
-
-    <a class="botao botao-verde-escuro" href="https://outlook.office365.com/owa/calendar/1c7eae05247c46edac94d24f4d9da82b@mosmannalimentos.com.br/d35699977e5d4e29b8060fc1c49aab8a77506909330953308/calendar.html" target="_blank" rel="noopener">
-      <span class="botao-icone">📅</span>
-      <span class="botao-texto">
-        <span class="botao-titulo">Ver agenda</span>
-        <span class="botao-sub">Datas livres e ocupadas</span>
-      </span>
-    </a>
-
-    <a class="botao botao-verde-medio" href="https://mosmann.sharepoint.com/:f:/s/Comercial-MosmannAlimentos-EventosMosmann/IgDnAfsbgdqiRami7kCOZh8pAdCH0xpQv6od6iUjagncEm8" target="_blank" rel="noopener">
-      <span class="botao-icone">📸</span>
-      <span class="botao-texto">
-        <span class="botao-titulo">Fotos e vídeos</span>
-        <span class="botao-sub">Baixar e compartilhar</span>
-      </span>
-    </a>
-  </main>
-
-  <a class="botao-contorno" href="https://wa.me/5551995629711" target="_blank" rel="noopener">
-    💬 Dúvidas? Fale com o Marketing
-  </a>
-
-  <button id="btn-instalar" type="button">
-    📲 Instalar no celular
-  </button>
-
-  <footer>
-    Mosmann Alimentos Ltda.<br>
-    2026
-  </footer>
 
   <script>
     // Registra o service worker (necessário para o app ser instalável como PWA)
